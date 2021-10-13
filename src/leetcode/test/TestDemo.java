@@ -14,7 +14,7 @@ public class TestDemo {
         List<List<String>> res = new LinkedList<>();
         List<String> strings = new LinkedList<>();
         res.add(strings);
-        System.out.println(res.get(1));
+        System.out.println(res.get(100));
     }
 
 
