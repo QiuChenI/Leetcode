@@ -22,7 +22,7 @@ public class Main {
     //[[7,null],[13,0],[11,4],[10,2],[1,0]]
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.partition("cbbbcc"));
+        System.out.println(solution.partition("cbbbcc1"));
     }
 }
 
