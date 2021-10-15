@@ -28,8 +28,15 @@ public class Main {
                           {'i','h','k','r'},
                           {'i','f','l','v'}};
         String[] words = {"oath","pea","eat","rain"};
-        System.out.println(solution.findWords(board, words));
-//        System.out.println(solution.searchWords("eat", 0, board, 1, 3));
+
+        Trie trie = new Trie();
+        trie.insert("apple");
+        System.out.println(trie.search("apple"));
+        System.out.println(trie.search("app"));
+        System.out.println(trie.startsWith("app"));
+        trie.insert("app");
+        System.out.println(trie.search("app"));
+
     }
 }
 
@@ -37,7 +44,7 @@ public class Main {
 
 
 class Solution {
-
+    int[][] dirs = {{-1,0},{1,0},{0,-1},{0,1}};
     public List<String> findWords(char[][] board, String[] words) {
         Map<Character,List<String>> map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
@@ -50,7 +57,6 @@ class Solution {
                 map.put(c,ws);
             }
         }
-
         List<String> result = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
@@ -69,8 +75,8 @@ class Solution {
     }
 
     //查找指定字符串是否存在
-    public boolean searchWords(String word,int index,char[][] board,int i,int j) {
-        if (index >= word.length()) {
+    public boolean searchWords(Trie trie,char[][] board,int i,int j,Set<String> set) {
+        if (trie.) {
             return true;
         }
         if (i < 0 || i >= board.length || j < 0
@@ -79,14 +85,42 @@ class Solution {
         }
         char temp = board[i][j];
         board[i][j] = 1;
-        boolean flag = searchWords(word, index + 1, board, i + 1, j);
-        flag = flag || searchWords(word, index + 1, board, i - 1, j );
-        flag = flag || searchWords(word, index + 1, board, i , j + 1);
-        flag = flag || searchWords(word, index + 1, board, i , j - 1);
+        boolean flag = false;
+        for (int k = 0; k < dirs.length; k++) {
+            flag = flag || searchWords(word, index + 1, board, i+dirs[k][0], j );
+        }
         board[i][j] = temp;
         return flag;
     }
+
+    class Trie {
+        private String word;
+        private Trie[] children;
+        private boolean isEnd;
+
+        public Trie() {
+            children = new Trie[26];
+            isEnd = false;
+        }
+
+        public void insert(String word) {
+            Trie node = this;
+            char[] chars = word.toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                int j = chars[i] - 'a';
+                if (node.children[j] == null) {
+                    node.children[j] = new Trie();
+                }
+                node = node.children[j];
+            }
+            node.word = word;
+            node.isEnd = true;
+        }
+    }
 }
+
+
+
 
 
 
