@@ -27,7 +27,7 @@ public class Main {
                           {'e','t','a','e'},
                           {'i','h','k','r'},
                           {'i','f','l','v'}};
-        String[] words = {"oath","pea","eat","rain"};
+        String[] words = {"oath","pea","eat","rain11"};
 
     }
 }
