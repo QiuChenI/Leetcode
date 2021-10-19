@@ -28,7 +28,7 @@ public class Main {
                           {'i','h','k','r'},
                           {'i','f','l','v'}};
         String[] words = {"oath","pea","eat","rain11"};
-
+        System.out.println(solution.isMatch("aa", "?a"));
     }
 }
 
@@ -38,8 +38,6 @@ public class Main {
 class Solution {
 
 }
-
-
 
 
 
