@@ -23,26 +23,19 @@ public class Main {
     //[[7,null],[13,0],[11,4],[10,2],[1,0]]
     public static void main(String[] args) {
         Solution solution = new Solution();
-        char[][] board = {{'o','a','a','n'},
-                          {'e','t','a','e'},
-                          {'i','h','k','r'},
-                          {'i','f','l','v'}};
-        String[] words = {"oath","pea","eat","rain11"};
+        char[][] board = {{'o', 'a', 'a', 'n'},
+                {'e', 't', 'a', 'e'},
+                {'i', 'h', 'k', 'r'},
+                {'i', 'f', 'l', 'v'}};
+        String[] words = {"oath", "pea", "eat", "rain11"};
+
     }
 }
-
-
 
 
 class Solution {
 
 }
-
-
-
-
-
-
 
 
 class TreeNode {
@@ -85,11 +78,20 @@ class TreeNode {
 
 
 class ListNode {
-      int val;
-      ListNode next;
-      ListNode() {}
-      ListNode(int val) { this.val = val; }
-      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    int val;
+    ListNode next;
+
+    ListNode() {
+    }
+
+    ListNode(int val) {
+        this.val = val;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
 }
 
 //class Node {
